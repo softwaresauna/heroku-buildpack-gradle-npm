@@ -51,6 +51,7 @@ if [ "$SKIP_FRONTEND_BUILD" = "YES" ]
     echo "Frontend dir   = $FRONTEND_DIR"
 fi
 echo "Backend dir    = $BACKEND_DIR"
+echo "Environment    = $ENV"
 
 install_frontend_bins() {
   frontend_dir=$1
