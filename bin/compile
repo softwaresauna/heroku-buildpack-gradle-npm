@@ -19,9 +19,15 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+npmBuildEnv="prod"
+
+if [ "${ENV}" = "staging" ]; then
+  npmBuildEnv="staging"
+fi
+
 # Build systems tasks (Backend - Gradle, Frontend - NPM)
 GRADLE_TASK=${GRADLE_TASK-stage}
-NPM_TASK="run build:${ENV-staging}"
+NPM_TASK="run build:$npmBuildEnv"
 
 print_env
 export_env_dir $ENV_DIR
@@ -52,6 +58,7 @@ if [ "$SKIP_FRONTEND_BUILD" = "YES" ]
 fi
 echo "Backend dir    = $BACKEND_DIR"
 echo "Environment    = $ENV"
+echo "UI Environment = $npmBuildEnv"
 echo "NPM run task   = $NPM_TASK"
 
 install_frontend_bins() {
