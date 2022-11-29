@@ -52,6 +52,7 @@ if [ "$SKIP_FRONTEND_BUILD" = "YES" ]
 fi
 echo "Backend dir    = $BACKEND_DIR"
 echo "Environment    = $ENV"
+echo "NPM run task   = $NPM_TASK"
 
 install_frontend_bins() {
   frontend_dir=$1
